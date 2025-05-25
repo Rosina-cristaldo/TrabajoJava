@@ -23,7 +23,7 @@ public class OrderItem {
 
     @Override
     public String toString() {
-        return String.format("%s | Quantity: %d | Subtotal: %.2f",
+        return String.format("%s | Cantidad: %d | Subtotal: %.2f",
                 product.getName(), quantity, getSubtotal());
     }
 }

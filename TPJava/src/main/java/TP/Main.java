@@ -19,20 +19,20 @@ public class Main {
 
         do {
             System.out.println("\n=== MENU ===");
-            System.out.println("1. Add Product");
-            System.out.println("2. List Products");
-            System.out.println("3. Create Order");
-            System.out.println("4. List Orders");
-            System.out.println("0. Exit");
-            System.out.print("Select an option: ");
+            System.out.println("1. Agregar Producto");
+            System.out.println("2. Mostrar los productos");
+            System.out.println("3. Crear Pedido");
+            System.out.println("4. Mostrar Pedidos Existentes");
+            System.out.println("0. Finalizar APP");
+            System.out.print("Elija la opción deseada: ");
             option = scanner.nextInt();
 
             switch (option) {
                 case 1:
-                    scanner.nextLine(); // clear buffer
-                    System.out.print("Product name: ");
+                    scanner.nextLine(); // limpiar buffer
+                    System.out.print("Nombre del producto: ");
                     String name = scanner.nextLine();
-                    System.out.print("Price: ");
+                    System.out.print("Precio: ");
                     double price = scanner.nextDouble();
                     System.out.print("Stock: ");
                     int stock = scanner.nextInt();
@@ -47,27 +47,27 @@ public class Main {
                     Order order = orderManager.createOrder();
                     while (true) {
                         productManager.listProducts();
-                        System.out.print("Enter product ID to add (-1 to finish): ");
+                        System.out.print("Ingresar ID del producto para agregar (-1 para finalizar): ");
                         int productId = scanner.nextInt();
                         if (productId == -1) break;
 
                         Product product = productManager.findProductById(productId);
                         if (product == null) {
-                            System.out.println("Product not found.");
+                            System.out.println("Producto no encontrado.");
                             continue;
                         }
 
-                        System.out.print("Quantity: ");
+                        System.out.print("Cantidad: ");
                         int quantity = scanner.nextInt();
 
                         if (quantity <= 0 || quantity > product.getStock()) {
-                            System.out.println("Invalid quantity or not enough stock.");
+                            System.out.println("Cantidad inválida o stock insuficiente");
                             continue;
                         }
 
                         order.addItem(product, quantity);
                         product.setStock(product.getStock() - quantity);
-                        System.out.println("Product added to order.");
+                        System.out.println("Producto agregado al pedido.");
                     }
                     break;
 
@@ -76,11 +76,11 @@ public class Main {
                     break;
 
                 case 0:
-                    System.out.println("Goodbye!");
+                    System.out.println("Gracias por usar nuestra APP! Finalizando..");
                     break;
 
                 default:
-                    System.out.println("Invalid option.");
+                    System.out.println("Opción inválida.");
             }
 
         } while (option != 0);

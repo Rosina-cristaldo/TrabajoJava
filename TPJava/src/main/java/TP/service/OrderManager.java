@@ -16,7 +16,7 @@ public class OrderManager {
 
     public void listOrders() {
         if (orders.isEmpty()) {
-            System.out.println("No orders found.");
+            System.out.println("No se encontraron pedidos.");
             return;
         }
 

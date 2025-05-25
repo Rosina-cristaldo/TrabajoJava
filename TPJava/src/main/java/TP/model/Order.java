@@ -31,7 +31,7 @@ public class Order {
     }
 
     public void showDetails() {
-        System.out.println("Order #" + id);
+        System.out.println("Pedido ID# " + id);
         for (OrderItem item : items) {
             System.out.println("  " + item);
         }

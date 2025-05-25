@@ -14,7 +14,7 @@ public class ProductManager {
 
     public void listProducts() {
         if (products.isEmpty()) {
-            System.out.println("No products available.");
+            System.out.println("No hay productos disponibles.");
             return;
         }
 
